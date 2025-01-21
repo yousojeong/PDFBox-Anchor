@@ -1,11 +1,15 @@
 # PDFBoxAnchor
 
+## Use
+- 
+
 ## INSTALL
 
 ### Maven
+Add the following dependency to your `pom.xml`:
 ```xml
 <dependency>
-    <groupId>org.anchor</groupId>
+    <groupId>io.github.yousojeong</groupId>
     <artifactId>PDFBoxAnchor</artifactId>
     <version>1.0.0</version>
 </dependency>
