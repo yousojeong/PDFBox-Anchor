@@ -4,15 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--  coordinates  -->
     <groupId>io.github.yousojeong</groupId>
     <artifactId>PDFBoxAnchor</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
+    <!--  project description  -->
     <name>PDFBoxAnchor</name>
     <description>PDFBox Layout Helper</description>
     <url>https://github.com/yousojeong/PDFBox-Anchor</url>
 
+    <!--  license  -->
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -21,6 +24,7 @@
         </license>
     </licenses>
 
+    <!--  developers  -->
     <developers>
         <developer>
             <id>hielosan</id>
@@ -29,13 +33,14 @@
         </developer>
     </developers>
 
+    <!--  scm  -->
     <scm>
         <connection>scm:git:https://github.com/yousojeong/PDFBoxAnchor.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:yousojeong/PDFBoxAnchor.git</developerConnection>
         <url>https://github.com/yousojeong/PDFBoxAnchor</url>
     </scm>
 
-    <!--  maven central에 배포를 위함  -->
+    <!--  ossrh settings  -->
     <distributionManagement>
         <repository>
             <id>ossrh</id>
@@ -47,6 +52,12 @@
         </snapshotRepository>
     </distributionManagement>
 
+    <!--  encoding  -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--  dependencies  -->
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -71,6 +82,7 @@
 
     <build>
         <plugins>
+            <!--  to deploy by maven -->
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
@@ -80,6 +92,8 @@
                     <publishingServerId>central</publishingServerId>
                 </configuration>
             </plugin>
+
+            <!--  gpg -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -93,13 +107,9 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <gpgExecutable>"C:/Program Files (x86)/GnuPG/bin/gpg.exe"</gpgExecutable>
-                </configuration>
             </plugin>
 
-
-            <!-- 소스 코드 생성 -->
+            <!--  source -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -115,7 +125,7 @@
                 </executions>
             </plugin>
 
-            <!-- Javadoc 생성 -->
+            <!-- javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -131,7 +141,7 @@
                 </executions>
             </plugin>
 
-            <!-- 배포 전 검증 mvn clean verify -->
+            <!-- mvn verify -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -143,7 +153,6 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
